@@ -17,11 +17,11 @@ const Auth = () => {
         password
     }
 
-    const url = 'https://socialmtn.devmountain.com'
+    const url = 'http://localhost:5555'
 
     axios.post(register ? `${url}/register` : `${url}/login`, body)
         .then((res) => {
-            console.log('AFTER AUTH', res.data)
+            // console.log('AFTER AUTH', res.data)
             authCtx.login(res.data.token, res.data.exp, res.data.userId)
             
         })
@@ -29,19 +29,19 @@ const Auth = () => {
             setPassword('')
             setUsername('')
         })
-       console.log('submitHandler called')
+    //    console.log('submitHandler called')
 
-    //    authCtx.login(res.data.token, res.data.exp, res.data.userId)
+    
    }
  
    function passwordUpdate (e){
         setPassword(e.target.value)
-        console.log(password)
+        // console.log(password)
    }
 
    function usernameUpdate (e){
     setUsername(e.target.value)
-    console.log(username)
+    // console.log(username)
 }
 
     function registerUpdate(){
@@ -51,7 +51,7 @@ const Auth = () => {
             setRegister(true)
         )
        
-        console.log(register)
+        // console.log(register)
     }
 
    return (
